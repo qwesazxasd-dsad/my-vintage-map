@@ -1,0 +1,151 @@
+/* App.css */
+/* 여백 제거 (브라우저 기본 여백 없애기) */
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  /* overflow: hidden; 스크롤바 없애기 */
+}
+
+/* 지도 컨테이너가 화면 전체를 차지하도록 설정 */
+.app-container {
+  width: 100vw;   /* 화면 너비 100% */
+  height: 100vh;  /* 화면 높이 100% */
+  position: relative; /* 자식 요소들 위치 기준점 */
+}
+
+/* 제목을 지도 위에 띄우기 (선택사항) */
+.map-title {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100; /* 지도보다 위에 뜨게 함 */
+  background-color: black;
+  padding: 10px 20px;
+  border-radius: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+.menu-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1000; /* 지도보다 위에 */
+  background: black;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 15px;
+  font-size: 24px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.menu-btn:hover {
+  background-color: #f0f0f0;
+}
+
+/* 2. 사이드바 (평소엔 숨겨져 있음) */
+.sidebar {
+  position: absolute;
+  top: 0;
+  left: -320px; /* 화면 밖으로 숨김 */
+  width: 300px;
+  height: 100%;
+  background: white;
+  color: #333333;
+  z-index: 2000; /* 버튼보다 위에 */
+  box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+  transition: left 0.3s ease-in-out; /* 부드러운 애니메이션 */
+  display: flex;
+  flex-direction: column;
+}
+
+/* 사이드바가 열렸을 때 클래스 */
+.sidebar.open {
+  left: 0;
+}
+
+/* 사이드바 내용물 */
+.sidebar-header {
+  padding: 20px;
+  background-color: #333;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.search-box {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+}
+.search-box input {
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.category-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow-y: auto; /* 내용 많으면 스크롤 */
+}
+
+.category-item {
+  padding: 15px 20px;
+  border-bottom: 1px solid #f0f0f0;
+  cursor: pointer;
+  font-weight: bold;
+}
+.category-item:hover {
+  background-color: #f9f9f9;
+  color: #03c75a;
+}
+
+.sub-item {
+  font-weight: normal;
+  font-size: 14px;
+  color: #666;
+  padding-left: 10px;
+}
+
+/* App.css 맨 아래에 추가 */
+
+/* 하위 샵 목록 (지역 누르면 나오는 것) */
+.sub-shop-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: #f8f9fa; /* 약간 회색 배경 */
+  border-bottom: 1px solid #eee;
+}
+
+/* 하위 샵 아이템 */
+.sub-shop-item {
+  padding: 12px 20px 12px 40px; /* 왼쪽 여백을 더 줘서 들여쓰기 효과 */
+  font-size: 13px;
+  color: #555;
+  cursor: pointer;
+  border-bottom: 1px solid #f1f1f1;
+  transition: background 0.2s;
+}
+
+.sub-shop-item:hover {
+  background-color: #e9ecef;
+  color: #03c75a; /* 네이버 그린 */
+  font-weight: bold;
+}
